@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01 - Introdução ao HTML e JS Canvas</title>
+    
+    <style>
+
+        #canvas {
+            /*width: 500px;
+            height: 500px;*/
+            
+            /*O ideal é que "width" e "height" sejam declaradas "inline" - para evitar desproporções de tamanho.*/
+            
+            border: 1px solid black;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    
+    <!--O HTML e JS Canvas nos permite inserir imagens/desenhos/vetores através de linhas de código e, através do JS, controlar esse conteúdo. Com o Canvas, é possível criar gráficos dinâmicos ou qualquer tipo de desenho/imagem/arte gráfica que necessite ser alterada em tempo real, assim nos permitindo uma interação, em tempo real, com a página. - Canvas é muito utilizado com "dashboards" on-lines.-->
+
+    <!--Para adicionar o Canvas, ao HTML, basta usar a "tag canvas":-->
+    <!--As propriedades (básicas) que podem ser definidas na "tag canvas" são as seguintes:-->
+
+    <canvas id="canvas" width="500" height="500">
+
+        <!--Aqui na parte HTML, se pode adicionar elementos que, em caso do navegador não suportar o Canvas, serão renderizados em seu lugar.-->
+
+        <h1>CFB Cursos</h1>
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+    <script>
+
+        //Todo o desenho e toda a programação do Canvas é feita no JS.
+        
+        //Primeiro passo para trabalhar com o Canvas: definir o "contexto". O contexto representa o modo de trabalho do Canvas.
+
+        var canvas = document.getElementById('canvas')
+        var contexto = canvas.getContext('2d') //Informando o contexto.
+
+        //Ordem de ações: 1ª: definições de preenchimento; 2ª: definições de borda; 3ª: criação do desenho.
+
+        contexto.fillStyle = '#00f' //Outra maneira de se declarar a cor do preenchimento: 'red' - (sempre entre aspas).
+
+        //Até agora, só feita a definição do preenchimento. Agora, vamos ao desenho em si:
+
+        contexto.fillRect(0, 0, 100, 100) //Nos permite desenhar um quadrado ou retângulo (preenchido com o estilo definido acima).
+
+        //Sempre será capturado e aplicado o último estilo definido antes de "fillRect()".
+
+        //Ordem dos elementos de "fillRect()": 1ª: posição (dois parâmetros: 1ª: eixo X, 2ª: eixo Y); 2ª: largura; 3ª: altura.
+
+        //Criando mais um elemento:
+
+        contexto.fillStyle = 'rgba(255, 0, 0, 0.5)'
+        contexto.fillRect(50, 50, 100, 100)
+
+    </script>
+
+</body>
+
+</html>
