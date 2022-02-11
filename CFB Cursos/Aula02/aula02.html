@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02 - Aprendendo Sobre "rect", "clearRect" e "fillRect"</title>
+
+    <script>
+
+        function desenho() {
+            var canvas = document.getElementById('canvas')
+            var contexto = canvas.getContext('2d')
+
+            var posição_x = 50
+            var posição_y = 50
+
+            contexto.fillStyle = '#00f'
+
+            contexto.rect(posição_x, posição_y, 200, 200)
+
+            //"rect()" cria um desenho sem preenchimento.
+            
+            //Preenchendo o desenho (criado acima):
+
+            //Criando mais uma desenho:
+
+            /*contexto.fillStyle = '#f00'
+
+            contexto.rect(50, 50, 100, 100)*/
+
+            //O "fill()" irá preencher todos os desenhos de acordo com as configurações definidas para o último desenho.
+
+            contexto.fill()
+
+            //"clearRect()" limpa um determinada área do Canvas.
+
+            contexto.clearRect(50, 50, 100, 100)
+
+            //"clearRect()" é útil para apagar uma área do Canvas para atualizá-la, posteriormente.
+        }
+
+    </script>
+
+</head>
+
+<body onload="desenho()">
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+</html>
