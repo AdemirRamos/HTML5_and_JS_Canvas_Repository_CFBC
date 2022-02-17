@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 04 - Movimentar Elementos Por Programação</title>
+
+</head>
+
+<body>
+    
+    <script>
+
+        let posição_x = 0
+        let posição_y = 0
+        let animação
+
+        function desenho() {
+            var canvas = document.getElementById('canvas')
+            var contexto = canvas.getContext('2d')
+
+            contexto.clearRect(0, 0, 500, 500) //Desta maneira, o quadrado será apagado a cada vez que a sua posição for atualizada.
+            contexto.fillStyle = '#f00'
+            contexto.fillRect(posição_x, posição_y, 50, 50)
+
+            //Criando uma animação para movimentação:
+
+            posição_x++
+
+            animação = requestAnimationFrame(desenho())
+        }
+
+    </script>
+
+</head>
+
+<body onload="desenho()">
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+</html>
