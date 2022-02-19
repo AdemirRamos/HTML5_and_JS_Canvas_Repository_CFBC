@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05 - Movimentar Elementos Por Programação (Parte 2)</title>
+
+</head>
+
+<body>
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let posição_x = 0
+        let posição_y = 10
+        let direção_x = 1
+        let animação
+        let largura_retângulo = altura_retângulo = 50
+        let largura_canvas = altura_canvas = 500
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        function desenho() {
+            contexto.clearRect(0, 0, largura_canvas, altura_canvas)
+            contexto.fillStyle = '#f00'
+            contexto.fillRect(posição_x, posição_y, largura_retângulo, altura_retângulo)
+
+            posição_x += direção_x
+
+            if (posição_x + largura_retângulo >= largura_canvas) {
+                direção_x = -1
+            }
+
+            if (posição_x <= 0) {
+                direção_x = 1
+            }
+
+            /*Outra sintaxe:
+            
+                if (posição_x + largura_retângulo >= largura_canvas) || (posição_x <= 0) {
+                    direção_x *= -1
+                }   
+
+            */
+
+            animação = requestAnimationFrame(desenho())
+        }
+
+        desenho()
+
+    </script>
+
+</html>
