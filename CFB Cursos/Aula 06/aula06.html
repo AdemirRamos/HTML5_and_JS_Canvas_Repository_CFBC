@@ -21,8 +21,9 @@
     <script>
 
         let posição_x = 0
-        let posição_y = 10
+        let posição_y = 0
         let direção_x = 1
+        let direção_y = 0
         let animação
         let largura_retângulo = altura_retângulo = 50
         let largura_canvas = altura_canvas = 500
@@ -32,28 +33,50 @@
 
         function desenho() {
             contexto.clearRect(0, 0, largura_canvas, altura_canvas)
+
             contexto.fillStyle = '#f00'
             contexto.fillRect(posição_x, posição_y, largura_retângulo, altura_retângulo)
 
+            contexto.lineWidth = 3
+            contexto.strokeStyle = '#00f'
+            contexto.strokeRect(posição_x, posição_y, largura_retângulo, altura_retângulo)
+
+            //Este não é um contorno, mas sim o novo quadrado que funciona como um contorno; por isso ele também deve ser movido.
+
             posição_x += direção_x
+            posição_y += direção_y
 
-            if (posição_x + largura_retângulo >= largura_canvas) {
-                direção_x = -1
-            }
-
-            if (posição_x <= 0) {
+            if ((posição_x <=0) && (posição_y <= 0)) {
                 direção_x = 1
+                direção_y = 0
             }
 
-            /*Outra sintaxe:
+            if ((posição_x + largura_retângulo >= largura_canvas) && (posição_y <= 0)) {
+                direção_x = 0
+                direção_y = 1
+            }
+
+            if ((posição_x + largura_retângulo >= largura_canvas) && (posição_y + altura_retângulo >= altura_canvas)) {
+                direção_x = -1
+                direção_y = 0
+            }
+
+            if ((posição_x <= 0) && (posição_y + altura_retângulo >= altura_canvas)) {
+                direção_x = 0
+                direção_y = -1
+            }
+
+            /*
             
-                if (posição_x + largura_retângulo >= largura_canvas) || (posição_x <= 0) {
+                Outra sintaxe (para deslocamento em só um eixo (eixo X): 
+            
+                if ((posição_x + largura_retângulo >= largura_canvas) || (posição_x <= 0)) {
                     direção_x *= -1
-                }   
+                }
 
             */
 
-            animação = requestAnimationFrame(desenho())
+            animação = requestAnimationFrame(desenho)
         }
 
         desenho()
