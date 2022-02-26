@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08 - Desenhando Arcos e Círuclos Com a Função "ARC" do Canvas (Parte 8)</title>
+
+</head>
+
+<body>
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        let tamanho_máximo = 40
+        let tamanho_mínimo = 10
+
+        function desenho() {
+            for (let i = 0; i < 10; i++) {
+                contexto.beginPath() //Usamos o "beginPath" caso o objeto a ser renderizado esteja na mesma posição que outro objeto.
+                contexto.fillStyle = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
+
+                //O primeiro comando abaixo gera uma série de círculos através da área do Canvas:
+
+                contexto.arc(Math.random() * 500, Math.random() * 500, Math.random() * 100, (Math.PI/180) * 0, (Math.PI/180) * 360, true)
+                contexto.fill()
+            }
+        }
+
+        function desenho_2() {
+            for (let i = 0; i < 10; i++) {
+                contexto.beginPath()
+                contexto.fillStyle = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
+
+                contexto.arc(Math.random() * 500, Math.random() * 500, Math.random() * tamanho_máximo + tamanho_mínimo, (Math.PI/180) * 0, (Math.PI/180) * 360, true)
+
+                contexto.fill()
+            }
+        }
+
+        desenho()
+        desenho_2()
+
+    </script>
+
+</html>

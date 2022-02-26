@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08.2 - Desenhando Arcos e Círuclos Com a Função "ARC" do Canvas (Parte 8)</title>
+
+</head>
+
+<body>
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+        let animação
+        let ângulo_inicial = 0
+        let ângulo_final = 0
+
+        let tamanho_máximo = 40
+        let tamanho_mínimo = 10
+        let máximo_círculos = 50
+
+        function desenho() {
+            contexto.clearRect(0, 0, 500, 500)
+
+            for (let i = 0; i < máximo_círculos; i++) {
+                contexto.beginPath()
+                contexto.fillStyle = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
+
+                contexto.arc(Math.random() * 500, Math.random() * 500, Math.random() * tamanho_máximo + tamanho_mínimo, (Math.PI/180) * 0, (Math.PI/180) * 360, true)
+
+                contexto.fill()
+            }
+
+            contexto.beginPath()
+            contexto.fillStyle = 'burlywood'
+            contexto.arc(250, 250, 150, (Math.PI/180) * ângulo_inicial, (Math.PI/180) * ângulo_final, false)
+            contexto.fill()
+
+            ângulo_final++
+
+            if (ângulo_final >= 360) {
+                ângulo_final = 0
+            }
+
+            animação = requestAnimationFrame(desenho)
+        }
+
+        desenho()
+
+    </script>
+
+</html>
