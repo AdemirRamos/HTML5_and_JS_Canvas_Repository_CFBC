@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 07 - Desenhando Arcos e Círuclos Com a Função "ARC" do Canvas (Parte 1)</title>
+
+</head>
+
+<body>
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        function desenho() {
+
+            //Valores: posição X, posição Y, raio, ângulo inicial, ângulo final, sentido ("true": horário; "false": anti-horário).
+
+            //No caso do ângulo, o valor deve ser convertido de graus para radianos. Fórmula:
+
+            //(PI / 180) * ângulo em graus.
+
+            //Para mais detalhes, ver aula 07 do curso de Canvas.
+
+            contexto.fillStyle = '#f00'
+            contexto.arc(100, 100, 100, (Math.PI/180) * 0, (Math.PI/180) * 90, true)
+            contexto.fill()
+
+            contexto.beginPath() //Checar.
+
+            contexto.fillStyle = '#00f'
+            contexto.arc(100, 100, 100, (Math.PI/180) * 0, (Math.PI/180) * 90, false)
+            contexto.fill()
+        }
+
+        desenho()
+
+    </script>
+
+</html>
