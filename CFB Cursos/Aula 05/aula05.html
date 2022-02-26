@@ -45,7 +45,9 @@
                 direção_x = 1
             }
 
-            /*Outra sintaxe:
+            /*
+            
+                Outra sintaxe:
             
                 if (posição_x + largura_retângulo >= largura_canvas) || (posição_x <= 0) {
                     direção_x *= -1
@@ -53,7 +55,7 @@
 
             */
 
-            animação = requestAnimationFrame(desenho())
+            animação = requestAnimationFrame(desenho)
         }
 
         desenho()
