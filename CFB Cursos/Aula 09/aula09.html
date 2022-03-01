@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 09 - Entendendo a Função "arcTo" do Canvas</title>
+
+</head>
+
+<body>
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        function desenho() {
+            contexto.clearRect(0, 0, 500, 500)
+
+            //Valores de arcTo: x1 e y1, x2 e y2 / raio - posição inicial, posição final, raio.
+
+            contexto.beginPath()
+            contexto.moveTo(0, 0)
+            contexto.lineTo(100, 100)
+
+            contexto.arcTo(250, 250, 500, 0, 100)
+
+            contexto.lineTo(500, 0)
+            contexto.closePath()
+
+            contexto.stroke()
+        }
+
+        desenho()
+
+    </script>
+
+</html>
