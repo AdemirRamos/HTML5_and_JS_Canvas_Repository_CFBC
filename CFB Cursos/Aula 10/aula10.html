@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10 - Aprendendo a Inserir Imagens No Canvas</title>
+
+<body>
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        let lofi = new Image()
+
+        lofi.onload = () => {
+            contexto.drawImage(lofi, 0, 0, 600, 337, 0, 0, 580, 300)
+
+            /*Outra opção de se realizar o mesmo processo: lofi.addEventListener('load', () => {
+                contexto.drawImage(lofi, 0, 0)
+            })*/
+        }
+
+        lofi.src = './Mídia/Lofi.jpg'
+
+        //contexto.drawImage(lofi, 0, 0)
+        //Parâmetros: 1ª: a imagem que se deseja adicionar; 2ª: posição X; 3ª: posição Y; 4ª: tamanho da imagem (X e Y).
+        
+        //5ª: imagem; X inicial do recorte; Y inicial do recorte; largura do recorte; altura do recorte; posição X da imagem;
+        //posição Y da imagem; tamanho da imagem (largura da imagem e altura da imagem). 
+
+        //A imagem leva mais tempo para carregar do que os outros elementos no Canvas.
+        //Por isso, é preciso garantir que a imagem só será desenhada no Canvas após ter sido carregada.
+
+    </script>
+
+</html>
