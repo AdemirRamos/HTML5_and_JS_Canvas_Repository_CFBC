@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11 - Sprite Sheet Em Canvas</title>
+
+<body>
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        let lofi = new Image()
+
+        lofi.src = './Mídia/Lofi.jpg'
+
+        let número_sprite = 0
+        let posiçãoInicialX
+        let largura_imagem = 0
+        let altura_imagem = 0
+        let larguraDoSprite = 0
+        let alturaDoSprite = 0
+        let númeroDeSprites = 1
+
+        lofi.addEventListener('load', () => {
+            largura_imagem = lofi.width
+            larguraDoSprite = largura_imagem / númeroDeSprites
+            alturaDoSprite = lofi.height / númeroDeSprites
+            posiçãoInicialX = larguraDoSprite * número_sprite
+
+            contexto.drawImage(lofi, número_sprite, 0, larguraDoSprite, alturaDoSprite, 0, 0, larguraDoSprite, alturaDoSprite)
+        })
+
+        //Criando a animação:
+
+        let animação = setInterval(() => {
+            contexto.clearRect(0, 0, 500, 500)
+
+            número_sprite += 50
+
+            if (número_sprite > largura_imagem) {
+                número_sprite = 0
+            }
+
+            posiçãoInicialX = larguraDoSprite * número_sprite
+            contexto.drawImage(lofi, número_sprite, 0, larguraDoSprite, alturaDoSprite, 0, 0, larguraDoSprite, alturaDoSprite)
+        }, 1000)
+
+    </script>
+
+</html>
