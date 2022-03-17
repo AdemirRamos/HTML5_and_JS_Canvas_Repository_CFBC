@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 14 - Movendo Imagens No Canvas Pelo Teclado Usando Classes (Parte 3)</title>
+
+<body>
+
+    <canvas id="canvas" width="500" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        const teclado = {cima: false, baixo: false, esquerda: false, direita: false}
+
+        window.addEventListener('keydown', (event) => {
+            if (event.keyCode == 37) { //Esquerda.
+                teclado.esquerda = true
+            }
+
+            else if (event.keyCode == 39) { //Direita.
+                teclado.direita = true
+            }
+
+            else if (event.keyCode == 38) { //Baixo.
+                teclado.baixo = true
+            }
+
+            else if (event.keyCode == 40) { //Cima.
+                teclado.cima = true
+            }
+        })
+
+        window.addEventListener('keyup', (event) => {
+            if (event.keyCode == 37) { //Esquerda.
+                teclado.esquerda = false
+            }
+
+            else if (event.keyCode == 39) { //Direita.
+                teclado.direita = false
+            }
+
+            else if (event.keyCode == 38) { //Baixo.
+                teclado.baixo = false
+            }
+
+            else if (event.keyCode == 40) { //Cima.
+                teclado.cima = false
+            }
+        })
+
+        const movimentação = () => {
+            contexto.clearRect(0, 0, canvas.width, canvas.height)
+            requestAnimationFrame(movimentação)
+        }
+
+        requestAnimationFrame(movimentação)
+
+        //Ao aumentar o valor da variável "velocidade", a movimentação da imagem será mais rápida - o inverso também se aplica.
+
+    </script>
+
+</html>
