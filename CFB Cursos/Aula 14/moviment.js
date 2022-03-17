@@ -11,7 +11,7 @@ class Moviment {
         //Também poderia ser feito desta maneira: "this.lofi.onLoad".
 
         this.lofi.addEventListener('load', ()=> {
-            desenhar()
+            this.desenhar()
         })
     }
 
@@ -34,7 +34,7 @@ class Moviment {
     }
 
     desenhar() {
-        gerenciar()
+        this.gerenciar()
         this.context.drawImage(this.lofi, this.x, this.y)
     }
 }
