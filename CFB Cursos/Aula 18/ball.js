@@ -8,7 +8,6 @@ class Ball {
         this.velocidade = 3
         this.largura = 20
         this.altura = 20
-        this.x = 0
         this.y = (this.context.canvas.height / 2) - (this.altura / 2)
         this.x = (this.context.canvas.width / 2) - (this.largura / 2)
     }
@@ -41,7 +40,7 @@ class Ball {
                 this.direção_y = 1
             }
 
-            if ((this.x <= this.jogador.x + this.jogador.largura && this.x + this.largura >= this.joador.x) &&
+            if ((this.x <= this.jogador.x + this.jogador.largura && this.x + this.largura >= this.jogador.x) &&
                 (this.y + this.altura >= this.jogador.y && this.y <= this.jogador.y + this.jogador.altura)) {
                 this.direação_x *= -1
             }

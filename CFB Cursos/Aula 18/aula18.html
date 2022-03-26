@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 16 - Jogo de Ping-pong em Canvas</title>
-
+    <title>Aula 18 - Jogo de Ping-pong em Canvas (Parte 3)</title>
     <script src="./pad.js"></script>
     <script src="./ball.js"></script>
 
@@ -29,7 +28,7 @@
         const teclado = {cima: false, baixo: false, esquerda: false, direita: false}
 
         const deaf = new Pad(contexto, teclado)
-        const bola = new Ball (contexto, teclado)
+        const bola = new Ball (contexto, deaf)
 
         window.addEventListener('keydown', (event) => {
             if (event.keyCode == 37) { //Esquerda.
