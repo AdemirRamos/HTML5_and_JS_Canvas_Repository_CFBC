@@ -42,7 +42,7 @@ class Ball {
 
             if ((this.x <= this.jogador.x + this.jogador.largura && this.x + this.largura >= this.jogador.x) &&
                 (this.y + this.altura >= this.jogador.y && this.y <= this.jogador.y + this.jogador.altura)) {
-                this.direação_x *= -1
+                this.direação_x *= 1
             }
         }
     }

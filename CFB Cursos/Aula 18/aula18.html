@@ -28,7 +28,7 @@
         const teclado = {cima: false, baixo: false, esquerda: false, direita: false}
 
         const deaf = new Pad(contexto, teclado)
-        const bola = new Ball (contexto, deaf)
+        const bola = new Ball(contexto, deaf)
 
         window.addEventListener('keydown', (event) => {
             if (event.keyCode == 37) { //Esquerda.
