@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 22 - Aprendendo a Usar Texto No Canvas</title>
+
+<body>
+
+    <canvas id="canvas" width="1000" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        //Também se pode adicionar o texto via variáveis:
+
+        let canal = 'CFB Cursos'
+        let nome = 'Bruno'
+
+        //Para usá-las, basta trocar o texto nas funções (abaixo) pelas variáveis.
+
+        contexto.font = '30px arial'
+        contexto.fillStyle = '#008'
+        contexto.strokeText('CFB Cursos', 10, 100) //Parâmetros: 1ª: texto; 2ª: posição X; 3ª: posição Y. | Apenas contorno do texto.
+        contexto.fillText('CFB Cursos', 10, 200, 100) //Preenchimento do texto.
+
+        //Ao texto, pode ser adicionado um 4ª parâmetro referente à altura máxima do texto.
+
+    </script>
+
+</html>
