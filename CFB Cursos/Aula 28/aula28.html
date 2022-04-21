@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 28 - Aprendendo Sobre "bezier" Com a Função "bezierCurveTo"</title>
+
+<body>
+
+    <canvas id="canvas" width="1000" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        contexto.beginPath()
+
+            contexto.moveTo(300, 0)
+
+                contexto.bezierCurveTo(100, 150, 500, 250, 300, 400)
+
+            contexto.stroke()
+
+        contexto.closePath()
+
+        contexto.beginPath()
+
+        contexto.moveTo(400, 150)
+
+            contexto.bezierCurveTo(500, 0, 800, 200, 400, 500)
+            contexto.bezierCurveTo(0, 200, 300, 0, 400, 150)
+
+            contexto.stroke()
+
+        contexto.closePath()
+
+    </script>
+
+</html>
