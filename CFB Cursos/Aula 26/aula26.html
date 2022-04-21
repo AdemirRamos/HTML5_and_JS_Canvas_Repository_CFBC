@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 26 - Curvas de Bezier, Função "quadraticCurve" Em Canvas</title>
+
+<body>
+
+    <canvas id="canvas" width="1000" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        contexto.beginPath()
+
+            //Para maiores explicações, ver a aula 26 do curso de Canvas do CFB.
+
+            contexto.lineTo(200, 100)
+            contexto.quadraticCurveTo(300, -50, 400, 100)
+
+            contexto.quadraticCurveTo(500, 250, 600, 100)
+
+            contexto.stroke()
+
+        contexto.closePath()
+
+        contexto.beginPath()
+
+            contexto.fillStyle = '#f00'
+
+            contexto.lineTo(200, 200)
+            contexto.quadraticCurveTo(300, 150, 200, 300)
+
+            contexto.quadraticCurveTo(100, 150, 200, 200)
+
+            contexto.stroke()
+            contexto.fill()
+            
+        contexto.closePath()
+
+    </script>
+
+</html>
