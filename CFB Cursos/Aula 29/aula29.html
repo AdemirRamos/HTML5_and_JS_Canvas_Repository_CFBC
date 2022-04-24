@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 29 - Aprendendo Sobre a Função "globalAlpha" Em Canvas</title>
+
+<body>
+
+    <canvas id="canvas" width="1000" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        //"globalAlpha" define o nível de opacidade de um elemento/área no canvas.
+        //Para definir a opacidade de um ou mais elementos específicos, basta posicionar a "globalAlpha" antes do (s) elemento (s).
+
+        //contexto.globalAlpha = '0.5'
+
+        contexto.fillStyle = '#0ff'
+        contexto.fillRect(150, 150, 100, 100)
+
+        contexto.globalAlpha = '0.5'
+
+        contexto.fillStyle = '#f00'
+        contexto.fillRect(100, 100, 100, 100)
+        contexto.globalAlpha = '1'
+
+        contexto.fillStyle = '#00f'
+        contexto.fillRect(300, 100, 100, 100)
+
+        contexto.fillStyle = '#0f0'
+        contexto.fillRect(500, 100, 100, 100)
+
+        contexto.fillStyle = '#ff0'
+        contexto.fillRect(700, 100, 100, 100)
+
+    </script>
+
+</html>
