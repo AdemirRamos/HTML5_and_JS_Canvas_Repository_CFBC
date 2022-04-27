@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 30 - Gradiente Linear Em Canvas</title>
+
+<body>
+
+    <canvas id="canvas" width="1000" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        let px1, py1, tamanhoX, tamanhoY
+
+        px1 = 0
+        py1 = 0
+        tamanhoX = 300
+        tamanhoY = 300
+
+        let gradiente = contexto.createLinearGradient(px1, py1, tamanhoX, tamanhoY)
+
+        //Parâmetros de CLG: 1ª X1; 2ª: Y2 (onde começa o gradiente); 3ª: X2; 4ª: Y2 (onde termina o gradiente). 
+        //Adicionando cores ao gradiente:
+
+        gradiente.addColorStop(0, '#f00') //Ponto inicial do gradiente;
+        gradiente.addColorStop(1, '#ff0') //Ponto final do gradiente.
+
+        contexto.fillStyle = gradiente
+        contexto.fillRect(px1, py1, tamanhoX, tamanhoY)
+
+        //Caso a figura desenhada seja deslocada, o mesmo, de forma automática, não acontecerá com o gradiente.
+        //Para solucionar esse problema, podemos criar variáveis para definir as posições tanto do gradiente quanto do desenho.
+        //P. S.: É preciso ficar atento a alguns erros de posicionamento que podem acontecer ao se usar as referidas variáveis.
+
+    </script>
+
+</html>
