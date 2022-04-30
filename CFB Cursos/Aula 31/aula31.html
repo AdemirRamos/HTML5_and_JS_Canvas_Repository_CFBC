@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 31 - Gradiente Radial Em Canvas</title>
+
+<body>
+
+    <canvas id="canvas" width="1000" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        let px1, py1, tamanhoX, tamanhoY
+
+        px1 = 0
+        px2 = 0
+        py1 = 0
+        py2 = 0
+        raio1 = 0
+        raio2 = 0
+        tamanhoX = 300
+        tamanhoY = 300
+
+        let gradiente = contexto.createRadialGradient(30, 30, 10, 100, 100, 300)
+
+        //Parâmetros de CRG: 1ª: posição X1; 2ª: posição Y1; 3ª: raio 1; 4ª: posição X2; 5ª: posição Y2; 6ª: raio 2.
+        //P. S.: Para mais detalhes, ver a aula 31 do curso de Canvas do CFB Cursos.
+
+        //Adicionando cores ao gradiente:
+
+        gradiente.addColorStop(0, '#f00') //Ponto inicial do gradiente;
+        gradiente.addColorStop(1, '#ff0') //Ponto final do gradiente.
+
+        contexto.fillStyle = gradiente
+        contexto.fillRect(0, 0, 300, 300)
+
+    </script>
+
+</html>
