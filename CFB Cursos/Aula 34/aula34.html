@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 34 - Função "scale" Em Canvas - Funções de Transformação (Parte 2)</title>
+
+<body>
+
+    <canvas id="canvas" width="1000" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        contexto.fillStyle = '#008'
+        contexto.fillRect(0, 0, 200, 200)
+
+        contexto.translate(200, 0)
+        contexto.scale(2, 2) //Parâmetros: multiplicação do eixo X e Y.
+        
+        //Novamente: o que foi modificado foi o Canvas, não somente o objeto.
+
+        contexto.fillStyle = '#800'
+        contexto.fillRect(0, 0, 200, 200)
+
+        contexto.translate(200, 0)
+        contexto.scale(0.5, 0.5) //Voltando a escala do Canvas ao tamanho padrão.
+        contexto.fillStyle = '#0f0'
+        contexto.fillRect(0, 0, 200, 200)
+
+    </script>
+
+</html>
