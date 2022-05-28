@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 35 - Função "rotate" Em Canvas - Funções de Transformação (Parte 3)</title>
+
+<body>
+
+    <canvas id="canvas" width="1000" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        //"rotate", assim como as outras funções vistas até aqui, move o Canvas e esse, por sua vez, o objeto.
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+        contexto.fillStyle = '#00f'
+        contexto.fillRect(0, 0, 200, 200)
+
+        contexto.translate(200, 0)
+        contexto.rotate(45 * (Math.PI / 180)) //"rotate" trabalha com radianos.
+        contexto.fillStyle = '#f00'
+        contexto.fillRect(0, 0, 200, 200)
+
+        contexto.rotate(-45 * (Math.PI / 180)) //"-45" pois 45 passa a ser a nova posição zero do Canvas.
+        contexto.translate(200, 0)
+        contexto.fillStyle = '#0f0'
+        contexto.fillRect(0, 0, 200, 200)
+
+    </script>
+
+</html>
