@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 32 - Gradiente Padrão ("pattern") Em Canvas ("createPattern")</title>
+
+<body>
+
+    <canvas id="canvas" width="1000" height="500" style="border: 1px solid black;">
+
+        <p>O seu "browser" não possui suporte ao Canvas.</p>
+
+    </canvas>
+
+</body>
+
+    <script>
+
+        let canvas = document.getElementById('canvas')
+        let contexto = canvas.getContext('2d')
+
+       let padrãoUm = new Image()
+       let padrãoDois = new Image()
+
+       padrãoUm.src = 'Imagens/pattern 1.jpg'
+       padrãoDois.src = 'Imagens/pattern 2.jpg'
+
+       padrãoUm.onload = () => {
+        let pattern = contexto.createPattern(padrãoUm, 'repeat') //Parâmetros: 1º: imagem; 2º: repetição.
+        contexto.fillStyle = pattern
+        contexto.fillRect(0, 0, 300, 300)
+       }
+
+       padrãoDois.onload = function() {
+        let pattern = contexto.createPattern(padrãoDois, 'repeat')
+        contexto.fillStyle = pattern
+        contexto.fillRect(350, 0, 300, 300)
+       }
+
+    </script>
+
+</html>
